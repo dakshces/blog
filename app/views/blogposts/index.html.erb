@@ -1,0 +1,18 @@
+<h1>Listing all blogposts</h1>
+<p>
+<%= link_to "Create new blogpost", new_blogpost_path %>
+</p>
+<table>
+ <tr>
+  <th>Title</th>
+  <th>Content</th>
+ </tr>
+ <% Blogpost.all.each do |article| %>
+ <tr>
+  <td><%= article.title %> </td>
+  <td><%= article.content %> </td>
+  <td><%= link_to 'Edit', edit_blogpost_path(article) %> </td>
+  <td><%= link_to 'Show', blogpost_path(article) %> </td>
+ </tr>
+ <% end %>
+</table>

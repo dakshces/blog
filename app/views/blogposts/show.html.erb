@@ -1,0 +1,10 @@
+<h1>Showing selected blogpost</h1>
+<p>
+ Title: <%= @blogpost.title %>
+</p>
+<p>
+ Content: <%= @blogpost.content %>
+</p>
+
+<%= link_to "Edit", edit_blogpost_path(@blogpost) %>
+<%= link_to 'Back', blogposts_path %>
