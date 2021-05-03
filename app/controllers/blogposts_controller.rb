@@ -1,5 +1,7 @@
 class BlogpostsController < ApplicationController
   
+  before_action :set_blogpost, only: [:edit, :update, :show, :destroy]
+  
   def index
     @blogposts = Blogpost.all
   end
@@ -20,15 +22,12 @@ class BlogpostsController < ApplicationController
   end
   
   def show
-    @blogpost = Blogpost.find(params[:id])
   end
   
   def edit
-    @blogpost = Blogpost.find(params[:id])
   end
   
   def update
-    @blogpost = Blogpost.find(params[:id])
     if @blogpost.update(blogpost_params)
      flash[:notice] = "Blogpost was updated"
      redirect_to blogpost_path(@blogpost)
@@ -38,9 +37,19 @@ class BlogpostsController < ApplicationController
     end
   end
   
+  def destroy
+    @blogpost.destroy
+    flash[:notice] = "Post was deleted"
+    redirect_to blogposts_path
+  end
+  
   private
   def blogpost_params
    params.require(:blogpost).permit(:title, :content, :tags)
+  end
+  
+  def set_blogpost
+    @blogpost = Blogpost.find(params[:id])
   end
 
 
