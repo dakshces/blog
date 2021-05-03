@@ -14,7 +14,7 @@ class BlogpostsController < ApplicationController
     #render plain: params[:blogpost].inspect
     @blogpost = Blogpost.new(blogpost_params)
     if @blogpost.save
-      flash[:notice] = "Blogpost was successfully created"
+      flash[:success] = "Blogpost was successfully created"
       redirect_to blogpost_path(@blogpost)
     else
       render 'new'
@@ -29,17 +29,17 @@ class BlogpostsController < ApplicationController
   
   def update
     if @blogpost.update(blogpost_params)
-     flash[:notice] = "Blogpost was updated"
+     flash[:success] = "Blogpost was updated"
      redirect_to blogpost_path(@blogpost)
     else
-     flash[:notice] = "Blogpost was not updated"
+     flash[:success] = "Blogpost was not updated"
      render 'edit'
     end
   end
   
   def destroy
     @blogpost.destroy
-    flash[:notice] = "Post was deleted"
+    flash[:success] = "Post was deleted"
     redirect_to blogposts_path
   end
   

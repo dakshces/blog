@@ -1,22 +1,29 @@
- <% if @blogpost.errors.any? %>
- <h2>The following errors prevented the blogpost from being saved:</h2>
-   <ul>
-     <% @blogpost.errors.full_messages.each do |msg|%>
-     <li><%= msg %></li>
-     <% end %>
-   </ul>
-  <% end %>
+<%= render 'shared/errors', obj: @blogpost %>
 
-<%= form_for @blogpost do |f| %>
-<p>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
- </p>
- <p>
-  <%= f.label :content %><br>
-  <%= f.text_area :content %>
- </p>
- <p>
-  <%= f.submit %>
- </p>
- <% end %>
+<div class="row">
+ <div class="col-xs-12">
+  <%= form_for(@blogpost, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :title %>
+   </div>
+   <div class="col-sm-6">
+    <%= f.text_field :title, class: "form-control", placeholder: "Title of post", autofocus: true %>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="control-label col-sm-2">
+    <%= f.label :content %>
+   </div>
+   <div class="col-sm-6">
+    <%= f.text_area :content, rows: 10, class: "form-control", placeholder: "Body of post" %>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit class: 'btn btn-primary btn-large' %>
+   </div>
+  </div>
+<% end %>
+ </div>
+</div>
