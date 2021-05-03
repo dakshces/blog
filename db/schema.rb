@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_124048) do
+ActiveRecord::Schema.define(version: 2021_05_03_125719) do
 
   create_table "blogposts", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_124048) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "tags"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

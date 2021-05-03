@@ -13,6 +13,7 @@ class BlogpostsController < ApplicationController
   def create
     #render plain: params[:blogpost].inspect
     @blogpost = Blogpost.new(blogpost_params)
+    @blogpost.user = User.first
     if @blogpost.save
       flash[:success] = "Blogpost was successfully created"
       redirect_to blogpost_path(@blogpost)
