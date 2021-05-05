@@ -14,10 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Posts", blogposts_path %></li>
-         <% if logged_in? %>
-          <li><%= link_to "Create Post", new_blogpost_path %></li>
-          <% end %>
+        <!---<li><%= link_to "Posts", blogposts_path %></li>--->
       </ul>
       <!---<form class="navbar-form navbar-left">
         <div class="form-group">
@@ -27,6 +24,7 @@
       </form>--->
       <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
+            <li><%= link_to "Create Post", new_blogpost_path %></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
           <% end %>
       </ul>

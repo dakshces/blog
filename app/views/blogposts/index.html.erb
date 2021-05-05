@@ -1,5 +1,16 @@
-<h1 align="center">Listing all blogposts</h1>
-<%= render 'shared/blogposts', obj: @blogposts %>
+<% provide(:title, "Home") %>
+<% provide(:baseTitle, "Math In Operation") %>
+<!DOCTYPE html>
+
+
+  <div id="header">
+    <h1>&nbsp;&nbsp; math in operation</h1>
+  </div>
+
+
+<div id="list">
+  <%= render 'shared/blogposts', obj: @blogposts %>
+</div>
 
 <div align="center">
  <%= will_paginate %>

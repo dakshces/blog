@@ -6,7 +6,7 @@
      <%= link_to blogpost.title, blogpost_path(blogpost) %>
     </div>
     <div class="blogpost-body">
-     <%= truncate(blogpost.content, length: 100) %>
+     <%= truncate(blogpost.content, length: 500) %>
      <div class="article-meta-details">
      <small>
       <% if blogpost.user %>
