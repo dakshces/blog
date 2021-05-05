@@ -8,6 +8,14 @@
     </div>
     <div class="blogpost-body">
      <%= truncate(blogpost.content, length: 100) %>
+     <div class="article-meta-details">
+     <small>
+      <% if blogpost.user %>
+      Created by: <%= blogpost.user.username%>,
+      <% end %>
+     <%= time_ago_in_words(blogpost.created_at) %> ago,
+     last updated: <%= time_ago_in_words(blogpost.updated_at) %> ago</small>
+     </div>
     </div>
     <div class="blogpost-actions">
      <%= link_to "Edit", edit_blogpost_path(blogpost), class: "btn btn-xs btn-primary" %>
