@@ -7,19 +7,23 @@ class BlogpostsController < ApplicationController
   end
   
   def new 
-    @blogpost = Blogpost.new
+    if logged_in?
+      @blogpost = Blogpost.new
+    else
+      redirect_to root_path
+    end
   end
   
   def create
     #render plain: params[:blogpost].inspect
-    @blogpost = Blogpost.new(blogpost_params)
-    @blogpost.user = User.first
-    if @blogpost.save
-      flash[:success] = "Blogpost was successfully created"
-      redirect_to blogpost_path(@blogpost)
-    else
-      render 'new'
-    end
+      @blogpost = Blogpost.new(blogpost_params)
+      @blogpost.user = User.first
+      if @blogpost.save
+        flash[:success] = "Blogpost was successfully created"
+        redirect_to blogpost_path(@blogpost)
+      else
+        render 'new'
+      end
   end
   
   def show
