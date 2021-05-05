@@ -11,12 +11,17 @@
     <%= render 'layouts/shim' %>
   </head>
 
+
   <body>
-    <%= render 'layouts/navigation' %>
-    <%= render 'shared/messages' %>
-    <div class="container">
-      <%= yield %>
-      <%= render 'layouts/footer' %>
+    <div id="header">
+     <a style="color: black; text-indent: 20px", href="/"><h1>math in operation</h1></a>
     </div>
+    <div style="margin-top: 200px">
+      <%= render 'shared/messages' %>
+      <div class="container">
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+      </div>
+    </div> 
   </body>
 </html>
