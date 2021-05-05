@@ -30,6 +30,9 @@ class BlogpostsController < ApplicationController
   end
   
   def edit
+    if !logged_in?
+      redirect_to root_path
+    end
   end
   
   def update
@@ -43,9 +46,13 @@ class BlogpostsController < ApplicationController
   end
   
   def destroy
-    @blogpost.destroy
-    flash[:success] = "Post was deleted"
-    redirect_to blogposts_path
+    if logged_in?
+      @blogpost.destroy
+      flash[:success] = "Post was deleted"
+      redirect_to blogposts_path
+    else
+      redirect_to root_path
+    end
   end
   
   private
