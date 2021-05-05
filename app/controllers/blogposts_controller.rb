@@ -3,7 +3,7 @@ class BlogpostsController < ApplicationController
   before_action :set_blogpost, only: [:edit, :update, :show, :destroy]
   
   def index
-    @blogposts = Blogpost.all
+    @blogposts = Blogpost.paginate(page: params[:page], per_page: 5)
   end
   
   def new 

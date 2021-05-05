@@ -7,3 +7,7 @@
  </div>
 </div>
 <%= render 'shared/blogposts', obj: @user.blogposts %>
+
+<div align="center">
+  <%= will_paginate @user_blogposts %>
+</div>
