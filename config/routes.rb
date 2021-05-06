@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'blogposts#index'
-  get '/about', to: 'static_pages#about'
+  get 'about', to: 'static_pages#about'
   resources :blogposts
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
