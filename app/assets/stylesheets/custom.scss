@@ -152,3 +152,12 @@ $amazing-yellow: #ffe600;
   transition: 0.3s; /* Add a transition effect (when scrolling - and font size is decreased) */
   z-index: 2
 }
+
+#header-button {
+ font-size: 15px;
+ background-color: #e7e7e7; 
+ color: black;
+ border-radius: 4px;
+ width: 50px;
+ padding: 10px 14px;
+}
