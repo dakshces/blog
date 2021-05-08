@@ -1,4 +1,8 @@
+<% provide(:title, "Update Post") %>
+<% provide(:baseTitle, "Math In Operation") %>
 <h1>Edit blogpost</h1>
 <%= render 'form' %>
-<%= link_to 'Delete', blogpost_path(@blogpost), method: :delete, data: {confirm: "Are you sure?"} %>
-<%= link_to 'Back', blogposts_path %>
+<div style="float: right"> 
+  <%= link_to 'Delete', blogpost_path(@blogpost), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %>
+  <%= link_to 'Back', blogposts_path , class: "btn btn-xs btn-success" %>
+</div>
