@@ -3,7 +3,13 @@
  <hr>
  <%= simple_format(@blogpost.content) %>
  <% if logged_in? %>
+ <div style="float: right"> 
   <%= link_to "Edit", edit_blogpost_path(@blogpost), class: "btn btn-xs btn-primary" %> 
-  <%= link_to 'Delete', blogpost_path(@blogpost), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %> 
+  <%= link_to 'Delete', blogpost_path(@blogpost), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %>
+  <%= link_to 'Back', blogposts_path , class: "btn btn-xs btn-success" %>
+ </div>
+ <% else %>
+ <div style="float: right"> 
+ <%= link_to 'Back', blogposts_path , class: "btn btn-xs btn-success" %>
+ </div>
  <% end %>
-<%= link_to 'Back', blogposts_path , class: "btn btn-xs btn-success" %>
