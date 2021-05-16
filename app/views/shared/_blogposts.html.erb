@@ -8,12 +8,25 @@
     <div class="blogpost-body">
      <%= truncate(blogpost.content, length: 500) %>
      <div class="article-meta-details">
-     <small>
-      <% if blogpost.user %>
-      Created by: <%= blogpost.user.username%>,
-      <% end %>
-     <%= time_ago_in_words(blogpost.created_at) %> ago,
-     last updated: <%= time_ago_in_words(blogpost.updated_at) %> ago</small>
+     <div>
+      <small>
+       <% if blogpost.user %>
+       Created by: <%= blogpost.user.username%>,
+       <% end %>
+      <%= time_ago_in_words(blogpost.created_at) %> ago,
+      last updated: <%= time_ago_in_words(blogpost.updated_at) %> ago
+      </small>
+     </div>
+     <div>
+      <small>
+       <% if blogpost.tag_list.any? %>
+       Tags:
+       <% blogpost.tag_list.each do |tag|%>
+       <%= tag %>
+       <% end %>
+       <% end %>
+      </small>
+     </div>
      </div>
     </div>
     <% if logged_in? %>
