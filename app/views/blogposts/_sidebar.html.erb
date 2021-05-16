@@ -1,7 +1,6 @@
 <div class="container">
 <div id="sidebar">
-	<ul>
-	  
+<ul>
 <h2 class="sidebartitle">Blogroll</h2>
 <ul>
    <li><a href="https://terrytao.wordpress.com/">Terry Tao</a></li>
@@ -12,5 +11,15 @@
    
 </ul>
 </ul>
+<hr>
+<ul class="cloud" role="navigation" aria-label="Webdev tag cloud">
+<% Blogpost.tag_counts_on(:tags).each do |tag| %>
+  <li><a data-weight= "<%= tag.taggings.count %>" href="<%= tag_path(tag.name) %>"><%= tag.name %></a></li>
+  <% end %>
+</ul>
+  
 </div>
 </div>
+
+
+
