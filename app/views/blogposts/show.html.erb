@@ -9,10 +9,9 @@
  
  <% @blogpost.tag_list.each do |tag|%>
   <div class="chip">
-   <%= tag %>
+   <%= link_to tag, tag_path(tag) %>
   </div>
  <% end %>
- 
 
  <% if logged_in? %>
  <div style="float: right"> 

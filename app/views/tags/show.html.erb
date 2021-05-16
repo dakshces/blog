@@ -1,4 +1,12 @@
-<% obj.each do |blogpost| %>
+<% provide(:tag_name, tag_path.split('/')[2]) %>
+<% provide(:title, yield(:tag_name) ) %>
+<% provide(:baseTitle, "Math In Operation") %>
+
+<h1 style="text-indent: 200px"> Posts tagged with "<%= yield(:tag_name) %>" </h1>
+
+<!DOCTYPE html>
+
+<% Blogpost.tagged_with(yield(:tag_name)).each do |blogpost| %>
  <div class="row">
   <div class="col-xs-8 col-xs-offset-2">
    <div class="well well-lg">
@@ -22,6 +30,7 @@
        <% if blogpost.tag_list.any? %>
        Tags:
        <% blogpost.tag_list.each do |tag|%>
+       <%= link_to tag, tag_path(tag) %>
        <% end %>
        <% end %>
       </small>
@@ -40,3 +49,5 @@
   </div>
  </div>
 <% end %>
+
+
