@@ -14,7 +14,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'acts-as-taggable-on', '~> 7.0'
-gem "actionpack", ">= 6.1.3.2"
 
 group :development, :test do
   gem 'sqlite3', '1.4.2'
