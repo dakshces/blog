@@ -4,6 +4,16 @@
  <h4 class="center"><strong><%= @blogpost.title %></strong></h4>
  <hr>
  <%= simple_format(@blogpost.content) %>
+
+<hr>
+ 
+ <% @blogpost.tag_list.each do |tag|%>
+  <div class="chip">
+   <%= tag %>
+  </div>
+ <% end %>
+ 
+
  <% if logged_in? %>
  <div style="float: right"> 
   <%= link_to "Edit", edit_blogpost_path(@blogpost), class: "btn btn-xs btn-primary" %> 
@@ -15,3 +25,5 @@
  <%= link_to 'Back', blogposts_path , class: "btn btn-xs btn-success" %>
  </div>
  <% end %>
+ </div>
+ 
